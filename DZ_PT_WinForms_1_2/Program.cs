@@ -24,12 +24,42 @@ namespace DZ_PT_WinForms_1_2
                 "Выход - Отмена.";
             result = MessageBox.Show(firstMessage, caption, MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
             if (result == DialogResult.Cancel) return result;
+            int numLeft = firstNumber;
+            int numRight = lastNumber;
+            int num = ((numRight - numLeft) / 2) + 1;
+
             do
             {
+                
+                String message = "Задуманное число больше или равно " + num + "?";
+                result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                
+                if (result == DialogResult.Yes)
+                {
+                    numLeft = num;
+                    if (MessageBox.Show("Ваше число " + num + "?", caption, MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        MessageBox.Show("Число отгадано.", caption);
+                        return result = DialogResult.Cancel;
+
+                    };
+                    num = ((numRight - numLeft) / 2) + numLeft;
+
+                }
+                else if (result == DialogResult.No)
+                {
+                    numRight = num;
+                    num = ((numRight - numLeft) / 2);
 
 
 
-            } while (result!=DialogResult.);
+                }
+                
+
+
+
+
+            } while (result==DialogResult.Cancel);
 
 
             return result;
