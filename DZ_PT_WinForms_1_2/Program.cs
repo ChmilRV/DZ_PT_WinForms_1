@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 /*Задание 2
 Написать функцию, которая «угадывает» задуманное пользователем число от 1 до 2000.
@@ -56,8 +53,7 @@ namespace DZ_PT_WinForms_1_2
         static void Main()
         {
             DialogResult result;
-            do
-            {
+            do {
                 result = GuessTheNumber();
             } while (result != DialogResult.Cancel);
         }

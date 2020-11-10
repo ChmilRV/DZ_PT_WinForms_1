@@ -25,9 +25,11 @@ namespace DZ_PT_WinForms_1_3
             {
                 if (ModifierKeys == Keys.Control)
                     this.Close();
-                if ((e.X < 10 || e.X > ClientSize.Width - 10) || (e.Y < 10 || e.Y > ClientSize.Height - 10))
+                if ((e.X < 10 || e.X > ClientSize.Width - 10) ||
+                    (e.Y < 10 || e.Y > ClientSize.Height - 10))
                     message += "снаружи прямоугольника.";
-                else if ((e.X == 10 || e.X == ClientSize.Width - 10) || (e.Y == 10 || e.Y == ClientSize.Height - 10))
+                else if ((e.X == 10 || e.X == ClientSize.Width - 10) ||
+                         (e.Y == 10 || e.Y == ClientSize.Height - 10))
                     message += "на границе прямоугольника.";
                 else
                     message += "внутри прямоугольника.";

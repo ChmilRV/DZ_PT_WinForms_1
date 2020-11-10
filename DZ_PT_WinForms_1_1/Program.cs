@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 /*Задание 1
 Вывести на экран свое (краткое!!!) резюме с помощью последовательности MessageBox’ов (числом не менее трех).
