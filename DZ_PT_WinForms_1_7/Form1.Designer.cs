@@ -120,7 +120,7 @@
             // radioButton_Second
             // 
             this.radioButton_Second.AutoSize = true;
-            this.radioButton_Second.Location = new System.Drawing.Point(384, 43);
+            this.radioButton_Second.Location = new System.Drawing.Point(375, 43);
             this.radioButton_Second.Name = "radioButton_Second";
             this.radioButton_Second.Size = new System.Drawing.Size(60, 17);
             this.radioButton_Second.TabIndex = 8;
@@ -143,7 +143,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(456, 76);
+            this.ClientSize = new System.Drawing.Size(451, 72);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.radioButton_Second);
             this.Controls.Add(this.radioButton_Minute);
