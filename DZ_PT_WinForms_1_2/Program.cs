@@ -18,55 +18,40 @@ namespace DZ_PT_WinForms_1_2
             int firstNumber = 1;
             int lastNumber = 2000;
             DialogResult result;
-            String caption = "Угадывание числа";
+            String caption = "Угадай число";
             String firstMessage = "Задумайте число от" + firstNumber + " до " + lastNumber +".\n" +
-                "Продолжить - ОК.\n" +
-                "Выход - Отмена.";
-            result = MessageBox.Show(firstMessage, caption, MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
-            if (result == DialogResult.Cancel) return result;
+                                  "Продолжить - ОК.\n" +
+                                  "Выход - Отмена.";
+            if (MessageBox.Show(firstMessage, caption, MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk) == DialogResult.Cancel)
+                return DialogResult.Cancel;
             int numLeft = firstNumber;
             int numRight = lastNumber;
             int num = ((numRight - numLeft) / 2) + 1;
-
             do
             {
-                
                 String message = "Задуманное число больше или равно " + num + "?";
                 result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                
                 if (result == DialogResult.Yes)
                 {
                     numLeft = num;
-                    if (MessageBox.Show("Ваше число " + num + "?", caption, MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    if (MessageBox.Show("Ваше число " + num + "?", caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        MessageBox.Show("Число отгадано.", caption);
-                        return result = DialogResult.Cancel;
-
+                        MessageBox.Show("Число отгадано.", caption, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        numLeft = firstNumber;
+                        numRight = lastNumber;
+                        if (MessageBox.Show("Еще раз?", caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question)==DialogResult.No)
+                            return DialogResult.Cancel;
                     };
                     num = ((numRight - numLeft) / 2) + numLeft;
-
                 }
                 else if (result == DialogResult.No)
                 {
                     numRight = num;
                     num = ((numRight - numLeft) / 2);
-
-
-
                 }
-                
-
-
-
-
-            } while (result==DialogResult.Cancel);
-
-
+            } while (result!=DialogResult.Cancel);
             return result;
         }
-
-
-
         [STAThread]
         static void Main()
         {
@@ -75,9 +60,6 @@ namespace DZ_PT_WinForms_1_2
             {
                 result = GuessTheNumber();
             } while (result != DialogResult.Cancel);
-
-
-
         }
     }
 }

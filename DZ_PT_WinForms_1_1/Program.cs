@@ -20,13 +20,14 @@ namespace DZ_PT_WinForms_1_1
              "Инженер-конструктор",
              "+380674157035",
              "chmilrv@gmail.com"};
+            String caption = "DZ_PT_WinForms_1_1. Резюме.";
             int countMessBoxes = 1;
             int resumeLenght = 0;
             foreach (object res in resume)
             {
                 resumeLenght += res.ToString().Length;
-                if (countMessBoxes < resume.Count) MessageBox.Show(res.ToString());
-                else MessageBox.Show(res.ToString(), (resumeLenght / countMessBoxes).ToString());
+                if (countMessBoxes < resume.Count) MessageBox.Show(res.ToString(), caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else MessageBox.Show(res.ToString(), "Среднее число символов на странице: " + (resumeLenght / countMessBoxes).ToString(), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 countMessBoxes++;
             }
         }
