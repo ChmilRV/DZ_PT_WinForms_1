@@ -12,87 +12,59 @@ namespace DZ_PT_WinForms_1_5
 {
     public partial class Form1 : Form
     {
-        //Label label;
-        int X, Y;
-        //int staticNumber = 1;
-
+        Label label;
         public Form1()
         {
             InitializeComponent();
+            label = new Label();
         }
-        private void Form1_MouseDown_1(object sender, MouseEventArgs e)
+        private void LableCenter(Label lable)
         {
-            if (e.Button == MouseButtons.Left)
-            {
-                X = e.X;
-                Y = e.Y;
-            }
+            label.Left = (ClientSize.Width - label.Size.Width) / 2;
+            label.Top = (ClientSize.Height - label.Size.Height) / 2;
         }
-
-
-
-        private void Form1_MouseUp_1(object sender, MouseEventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
-            {
-                Label label = new Label();
-                label.BorderStyle = BorderStyle.Fixed3D;
-                if (e.X > X && e.Y > Y)
-                    label.Location = new Point(X, Y);
-                else if (e.X > X && e.Y < Y)
-                    label.Location = new Point(X, e.Y);
-                else if (e.X < X && e.Y < Y)
-                    label.Location = new Point(e.X, e.Y);
-                else
-                    label.Location = new Point(e.X, Y);
-                if (Math.Abs(e.X - X) >= 50 || Math.Abs(e.Y - Y) >= 50)
-                {
-                    label.Size = new Size(Math.Abs(e.X - X), Math.Abs(e.Y - Y));
-                    //label.Text = staticNumber.ToString();
-                    //label.ForeColor = Color.White;
-                    label.BackColor = Color.IndianRed;
-                    Controls.Add(label);
-                    //Text = "Статик №" + label.Text + " создан.";
-                    //label.MouseClick += LabelClick;
-                    //label.MouseDoubleClick += LabelDoubleClick;
-                    //staticNumber++;
-                }
-            }
-
-            
+            label.BorderStyle = BorderStyle.Fixed3D;
+            label.Size = new Size(150, 150);
+            label.TextAlign = ContentAlignment.MiddleCenter;
+            label.AutoSize = false;
+            label.BackColor = Color.Red;
+            Controls.Add(label);
+            LableCenter(label);
         }
-
         private void Form1_MouseMove(object sender, MouseEventArgs e)
         {
-            if ((e.X > label.Location.X - 20 && e.X < label.Location.X + label.Width + 20) && (e.Y > label.Location.Y - 20 && e.Y < label.Location.Y + label.Height + 20))
+            if ((e.X > label.Location.X - 20 &&
+                 e.X < label.Location.X + label.Width + 20) &&
+                (e.Y > label.Location.Y - 20 &&
+                 e.Y < label.Location.Y + label.Height + 20))
             {
-                if (e.X > label.Location.X - 20 && e.X < label.Location.X)//движение курсора с лева по оси Х
+                if (e.X > label.Location.X - 20 &&
+                    e.X < label.Location.X)
                 {
-                    label.Left += 10;
+                    label.Left += 5;
                 }
-                else if (e.X < label.Location.X + label.Width + 20 && e.X > label.Location.X + label.Width)//движение курсора с права по оси Х
+                else if (e.X < label.Location.X + label.Width + 20 && e.X > label.Location.X + label.Width)
                 {
-                    label.Left -= 10;
+                    label.Left -= 5;
                 }
-                else if (e.Y > label.Location.Y - 20 && e.Y < label.Location.Y)//движение курсора с верху по оси У
+                else if (e.Y > label.Location.Y - 20 && e.Y < label.Location.Y)
                 {
-                    label.Top += 10;
+                    label.Top += 5;
                 }
-                else if (e.Y < label.Location.Y + label.Height + 20 && e.Y > label.Location.Y + label.Height)//движение курсора с низу по оси У
+                else if (e.Y < label.Location.Y + label.Height + 20 && e.Y > label.Location.Y + label.Height)
                 {
-                    label.Top -= 10;
+                    label.Top -= 5;
                 }
-                //Проверка границ окна и возврат «статика» в центр
-                //if ((label.Location.X < 0 || label.Location.X > ClientSize.Width - label.Width) || (label.Location.Y < 0 || label.Location.Y > ClientSize.Height - label.Height))
-                //{
-                //    LableCenter(label);
-                //}
+                if ((label.Location.X < 0 ||
+                     label.Location.X > ClientSize.Width - label.Width) ||
+                    (label.Location.Y < 0 ||
+                     label.Location.Y > ClientSize.Height - label.Height))
+                {
+                    LableCenter(label);
+                }
             }
         }
-
-
-
-
-
     }
 }
