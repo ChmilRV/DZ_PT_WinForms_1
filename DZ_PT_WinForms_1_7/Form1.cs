@@ -11,8 +11,9 @@ namespace DZ_PT_WinForms_1_7
             label3.Text = "0";
             radioButton_Year.Checked = true;
         }
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private string Calculate()
         {
+            string calc = "";
             try
             {
                 DateTime dayCalc = new DateTime();
@@ -22,23 +23,48 @@ namespace DZ_PT_WinForms_1_7
                 if (dayCalc > dayNow)
                 {
                     if (radioButton_Year.Checked)
-                        label3.Text = Math.Round(diffDay.TotalDays / 365.25, 1).ToString() + " лет";
+                        calc = Math.Round(diffDay.TotalDays / 365.25, 1).ToString() + " лет";
                     if (radioButton_Month.Checked)
-                        label3.Text = Math.Round(diffDay.TotalDays / 30, 1).ToString() + " месяцев";
+                        calc = Math.Round(diffDay.TotalDays / 30, 1).ToString() + " месяцев";
                     if (radioButton_Day.Checked)
-                        label3.Text = ((int)diffDay.TotalDays).ToString() + " дней";
+                        calc = ((int)diffDay.TotalDays).ToString() + " дней";
                     if (radioButton_Minute.Checked)
-                        label3.Text = ((int)diffDay.TotalMinutes).ToString() + " минут";
+                        calc = ((int)diffDay.TotalMinutes).ToString() + " минут";
                     if (radioButton_Second.Checked)
-                        label3.Text = ((int)diffDay.TotalSeconds).ToString() + " секунд";
+                        calc = ((int)diffDay.TotalSeconds).ToString() + " секунд";
                 }
                 else
-                    label3.Text = "Прошлое...";
+                    calc = "Прошлое...";
             }
             catch (Exception)
             {
-                label3.Text = " Неформат...";
+                calc = " Неформат...";
             }
+            return calc;
+        }
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            label3.Text = Calculate();
+        }
+        private void radioButton_Year_CheckedChanged(object sender, EventArgs e)
+        {
+            label3.Text = Calculate();
+        }
+        private void radioButton_Month_CheckedChanged(object sender, EventArgs e)
+        {
+            label3.Text = Calculate();
+        }
+        private void radioButton_Day_CheckedChanged(object sender, EventArgs e)
+        {
+            label3.Text = Calculate();
+        }
+        private void radioButton_Minute_CheckedChanged(object sender, EventArgs e)
+        {
+            label3.Text = Calculate();
+        }
+        private void radioButton_Second_CheckedChanged(object sender, EventArgs e)
+        {
+            label3.Text = Calculate();
         }
     }
 }
