@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1_FueLStation = new System.Windows.Forms.GroupBox();
+            this.groupBox_FueLStation = new System.Windows.Forms.GroupBox();
             this.groupBox_FuelTotalSumm = new System.Windows.Forms.GroupBox();
             this.label3_grn = new System.Windows.Forms.Label();
             this.label_FuelTotalSumm = new System.Windows.Forms.Label();
@@ -44,26 +44,27 @@
             this.label_FuelPrice = new System.Windows.Forms.Label();
             this.comboBox_Fuel = new System.Windows.Forms.ComboBox();
             this.label_Fuel = new System.Windows.Forms.Label();
-            this.groupBox1_FueLStation.SuspendLayout();
+            this.groupBox_Cafe = new System.Windows.Forms.GroupBox();
+            this.groupBox_FueLStation.SuspendLayout();
             this.groupBox_FuelTotalSumm.SuspendLayout();
             this.groupBox2_SumVolume.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1_FueLStation
+            // groupBox_FueLStation
             // 
-            this.groupBox1_FueLStation.Controls.Add(this.groupBox_FuelTotalSumm);
-            this.groupBox1_FueLStation.Controls.Add(this.label1_grn);
-            this.groupBox1_FueLStation.Controls.Add(this.groupBox2_SumVolume);
-            this.groupBox1_FueLStation.Controls.Add(this.textBox_FuelPrice);
-            this.groupBox1_FueLStation.Controls.Add(this.label_FuelPrice);
-            this.groupBox1_FueLStation.Controls.Add(this.comboBox_Fuel);
-            this.groupBox1_FueLStation.Controls.Add(this.label_Fuel);
-            this.groupBox1_FueLStation.Location = new System.Drawing.Point(8, 8);
-            this.groupBox1_FueLStation.Name = "groupBox1_FueLStation";
-            this.groupBox1_FueLStation.Size = new System.Drawing.Size(256, 280);
-            this.groupBox1_FueLStation.TabIndex = 0;
-            this.groupBox1_FueLStation.TabStop = false;
-            this.groupBox1_FueLStation.Text = "Автозаправка";
+            this.groupBox_FueLStation.Controls.Add(this.groupBox_FuelTotalSumm);
+            this.groupBox_FueLStation.Controls.Add(this.label1_grn);
+            this.groupBox_FueLStation.Controls.Add(this.groupBox2_SumVolume);
+            this.groupBox_FueLStation.Controls.Add(this.textBox_FuelPrice);
+            this.groupBox_FueLStation.Controls.Add(this.label_FuelPrice);
+            this.groupBox_FueLStation.Controls.Add(this.comboBox_Fuel);
+            this.groupBox_FueLStation.Controls.Add(this.label_Fuel);
+            this.groupBox_FueLStation.Location = new System.Drawing.Point(8, 8);
+            this.groupBox_FueLStation.Name = "groupBox_FueLStation";
+            this.groupBox_FueLStation.Size = new System.Drawing.Size(256, 280);
+            this.groupBox_FueLStation.TabIndex = 0;
+            this.groupBox_FueLStation.TabStop = false;
+            this.groupBox_FueLStation.Text = "Автозаправка";
             // 
             // groupBox_FuelTotalSumm
             // 
@@ -88,13 +89,15 @@
             // 
             // label_FuelTotalSumm
             // 
+            this.label_FuelTotalSumm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label_FuelTotalSumm.AutoSize = true;
             this.label_FuelTotalSumm.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_FuelTotalSumm.Location = new System.Drawing.Point(88, 32);
+            this.label_FuelTotalSumm.Location = new System.Drawing.Point(32, 32);
             this.label_FuelTotalSumm.Name = "label_FuelTotalSumm";
             this.label_FuelTotalSumm.Size = new System.Drawing.Size(67, 31);
             this.label_FuelTotalSumm.TabIndex = 0;
             this.label_FuelTotalSumm.Text = "0,00";
+            this.label_FuelTotalSumm.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label1_grn
             // 
@@ -143,6 +146,7 @@
             this.textBox_FuelSumm.Name = "textBox_FuelSumm";
             this.textBox_FuelSumm.Size = new System.Drawing.Size(100, 20);
             this.textBox_FuelSumm.TabIndex = 3;
+            this.textBox_FuelSumm.TextChanged += new System.EventHandler(this.textBox_FuelSumm_TextChanged);
             // 
             // textBox_FuelVolume
             // 
@@ -150,7 +154,7 @@
             this.textBox_FuelVolume.Name = "textBox_FuelVolume";
             this.textBox_FuelVolume.Size = new System.Drawing.Size(100, 20);
             this.textBox_FuelVolume.TabIndex = 2;
-            this.textBox_FuelVolume.TextChanged += new System.EventHandler(this.textBox1_FuelVolume_TextChanged);
+            this.textBox_FuelVolume.TextChanged += new System.EventHandler(this.textBox_FuelVolume_TextChanged);
             // 
             // radioButton_FuelSumm
             // 
@@ -162,7 +166,7 @@
             this.radioButton_FuelSumm.TabStop = true;
             this.radioButton_FuelSumm.Text = "Сумма";
             this.radioButton_FuelSumm.UseVisualStyleBackColor = true;
-            this.radioButton_FuelSumm.CheckedChanged += new System.EventHandler(this.radioButton2_FuelSumm_CheckedChanged);
+            this.radioButton_FuelSumm.CheckedChanged += new System.EventHandler(this.radioButton_FuelSumm_CheckedChanged_1);
             // 
             // radioButton_FuelVolume
             // 
@@ -174,7 +178,7 @@
             this.radioButton_FuelVolume.TabStop = true;
             this.radioButton_FuelVolume.Text = "Объем";
             this.radioButton_FuelVolume.UseVisualStyleBackColor = true;
-            this.radioButton_FuelVolume.CheckedChanged += new System.EventHandler(this.radioButton1_FuelVolume_CheckedChanged);
+            this.radioButton_FuelVolume.CheckedChanged += new System.EventHandler(this.radioButton_FuelVolume_CheckedChanged);
             // 
             // textBox_FuelPrice
             // 
@@ -183,7 +187,7 @@
             "23,65",
             "24,80",
             "26,90",
-            "12,00",
+            "11,70",
             "23,20"});
             this.textBox_FuelPrice.Location = new System.Drawing.Point(96, 64);
             this.textBox_FuelPrice.Name = "textBox_FuelPrice";
@@ -210,7 +214,7 @@
             "А-95",
             "А-98",
             "LPG",
-            "Disel"});
+            "Diesel"});
             this.comboBox_Fuel.Location = new System.Drawing.Point(96, 24);
             this.comboBox_Fuel.Name = "comboBox_Fuel";
             this.comboBox_Fuel.Size = new System.Drawing.Size(121, 21);
@@ -226,17 +230,27 @@
             this.label_Fuel.TabIndex = 0;
             this.label_Fuel.Text = "Топливо";
             // 
+            // groupBox_Cafe
+            // 
+            this.groupBox_Cafe.Location = new System.Drawing.Point(288, 16);
+            this.groupBox_Cafe.Name = "groupBox_Cafe";
+            this.groupBox_Cafe.Size = new System.Drawing.Size(312, 320);
+            this.groupBox_Cafe.TabIndex = 1;
+            this.groupBox_Cafe.TabStop = false;
+            this.groupBox_Cafe.Text = "Кафе";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.groupBox1_FueLStation);
+            this.Controls.Add(this.groupBox_Cafe);
+            this.Controls.Add(this.groupBox_FueLStation);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BestOil";
-            this.groupBox1_FueLStation.ResumeLayout(false);
-            this.groupBox1_FueLStation.PerformLayout();
+            this.groupBox_FueLStation.ResumeLayout(false);
+            this.groupBox_FueLStation.PerformLayout();
             this.groupBox_FuelTotalSumm.ResumeLayout(false);
             this.groupBox_FuelTotalSumm.PerformLayout();
             this.groupBox2_SumVolume.ResumeLayout(false);
@@ -247,7 +261,7 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1_FueLStation;
+        private System.Windows.Forms.GroupBox groupBox_FueLStation;
         private System.Windows.Forms.Label label_Fuel;
         private System.Windows.Forms.ComboBox comboBox_Fuel;
         private System.Windows.Forms.TextBox textBox_FuelPrice;
@@ -263,6 +277,7 @@
         private System.Windows.Forms.GroupBox groupBox_FuelTotalSumm;
         private System.Windows.Forms.Label label_FuelTotalSumm;
         private System.Windows.Forms.Label label3_grn;
+        private System.Windows.Forms.GroupBox groupBox_Cafe;
     }
 }
 
