@@ -30,64 +30,68 @@ namespace DZ_PT_WinForms_1_8
             textBox_FuelPrice.Text = textBox_FuelPrice.AutoCompleteCustomSource[comboBox_Fuel.SelectedIndex];
             
         }
+
         private void textBox_FuelVolume_TextChanged(object sender, EventArgs e)
         {
-            try
+            if (Double.TryParse(textBox_FuelPrice.Text, out double fuelPrice) && Double.TryParse(textBox_FuelVolume.Text, out double fuelVolume))
             {
-                label_FuelTotalSumm.Text = (Math.Round(Convert.ToDouble(textBox_FuelPrice.Text) * Convert.ToDouble(textBox_FuelVolume.Text), 2)).ToString();
-                //textBox_FuelSumm.Text = label_FuelTotalSumm.Text;
-
-            }
-            catch 
-            {
-                MessageBox.Show("Неверный формат ввода", "Ошибка", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                label_FuelTotalSumm.Text = Math.Round(fuelPrice * fuelVolume, 2).ToString();
             }
 
         }
-
 
         private void textBox_FuelPrice_TextChanged(object sender, EventArgs e)
         {
-            try
+            if (radioButton_FuelSumm.Checked)
             {
-                label_FuelTotalSumm.Text = (Math.Round(Convert.ToDouble(textBox_FuelPrice.Text) * Convert.ToDouble(textBox_FuelVolume.Text), 2)).ToString();
+                double fuelVolume;
+                if (Double.TryParse(textBox_FuelSumm.Text, out double fuelSumm) && Double.TryParse(textBox_FuelPrice.Text, out double fuelPrice))
+                {
+                    try
+                    {
+                        fuelVolume = Math.Round(fuelSumm / fuelPrice, 2);
+                        textBox_FuelVolume.Text = fuelVolume.ToString();
+                        if (Double.TryParse(textBox_FuelPrice.Text, out fuelPrice))
+                        {
+                            label_FuelTotalSumm.Text = Math.Round(fuelPrice * fuelVolume, 2).ToString();
+                        }
+                    }
+                    catch { }
+                }
             }
-            catch
+            else if (radioButton_FuelVolume.Checked)
             {
-                MessageBox.Show("Неверный формат ввода", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (Double.TryParse(textBox_FuelPrice.Text, out double fuelPrice) && Double.TryParse(textBox_FuelVolume.Text, out double fuelVolume))
+                {
+                    label_FuelTotalSumm.Text = Math.Round(fuelPrice * fuelVolume, 2).ToString();
+                }
             }
-
         }
-
-        
 
         private void radioButton_FuelVolume_CheckedChanged(object sender, EventArgs e)
         {
             textBox_FuelVolume.ReadOnly = false;
             textBox_FuelSumm.ReadOnly = true;
+            textBox_FuelSumm.Text = string.Empty;
         }
 
         private void radioButton_FuelSumm_CheckedChanged_1(object sender, EventArgs e)
         {
             textBox_FuelSumm.ReadOnly = false;
             textBox_FuelVolume.ReadOnly = true;
-
-
-
+            textBox_FuelVolume.Text = string.Empty;
         }
 
         private void textBox_FuelSumm_TextChanged(object sender, EventArgs e)
         {
-            try
+            if (Double.TryParse(textBox_FuelSumm.Text, out double fuelSumm) && Double.TryParse(textBox_FuelPrice.Text, out double fuelPrice))
             {
-                textBox_FuelVolume.Text = (Math.Round( Convert.ToDouble(textBox_FuelSumm.Text) / Convert.ToDouble(textBox_FuelPrice.Text), 2)).ToString();
+                try
+                {
+                    textBox_FuelVolume.Text = Math.Round(fuelSumm / fuelPrice, 2).ToString();
+                }
+                catch { }
             }
-            catch
-            {
-                MessageBox.Show("Неверный формат ввода", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-
 
         }
     }

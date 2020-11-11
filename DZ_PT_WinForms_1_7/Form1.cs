@@ -13,7 +13,7 @@ namespace DZ_PT_WinForms_1_7
         }
         private string Calculate()
         {
-            string calc = "";
+            string calc = string.Empty;
             try
             {
                 DateTime dayCalc = new DateTime();

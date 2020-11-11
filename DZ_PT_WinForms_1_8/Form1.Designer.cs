@@ -92,7 +92,7 @@
             this.label_FuelTotalSumm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label_FuelTotalSumm.AutoSize = true;
             this.label_FuelTotalSumm.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_FuelTotalSumm.Location = new System.Drawing.Point(32, 32);
+            this.label_FuelTotalSumm.Location = new System.Drawing.Point(34, 33);
             this.label_FuelTotalSumm.Name = "label_FuelTotalSumm";
             this.label_FuelTotalSumm.Size = new System.Drawing.Size(67, 31);
             this.label_FuelTotalSumm.TabIndex = 0;
@@ -183,12 +183,13 @@
             // textBox_FuelPrice
             // 
             this.textBox_FuelPrice.AutoCompleteCustomSource.AddRange(new string[] {
-            "22,55",
-            "23,65",
-            "24,80",
-            "26,90",
-            "11,70",
-            "23,20"});
+            "22.55",
+            "23.65",
+            "24.80",
+            "26.90",
+            "11.70",
+            "23.20",
+            "0.00"});
             this.textBox_FuelPrice.Location = new System.Drawing.Point(96, 64);
             this.textBox_FuelPrice.Name = "textBox_FuelPrice";
             this.textBox_FuelPrice.ReadOnly = true;
@@ -207,6 +208,7 @@
             // 
             // comboBox_Fuel
             // 
+            this.comboBox_Fuel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_Fuel.FormattingEnabled = true;
             this.comboBox_Fuel.Items.AddRange(new object[] {
             "А-80",
@@ -214,7 +216,8 @@
             "А-95",
             "А-98",
             "LPG",
-            "Diesel"});
+            "Diesel",
+            "OOO"});
             this.comboBox_Fuel.Location = new System.Drawing.Point(96, 24);
             this.comboBox_Fuel.Name = "comboBox_Fuel";
             this.comboBox_Fuel.Size = new System.Drawing.Size(121, 21);
@@ -232,9 +235,9 @@
             // 
             // groupBox_Cafe
             // 
-            this.groupBox_Cafe.Location = new System.Drawing.Point(288, 16);
+            this.groupBox_Cafe.Location = new System.Drawing.Point(288, 8);
             this.groupBox_Cafe.Name = "groupBox_Cafe";
-            this.groupBox_Cafe.Size = new System.Drawing.Size(312, 320);
+            this.groupBox_Cafe.Size = new System.Drawing.Size(312, 328);
             this.groupBox_Cafe.TabIndex = 1;
             this.groupBox_Cafe.TabStop = false;
             this.groupBox_Cafe.Text = "Кафе";
@@ -243,9 +246,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(627, 450);
             this.Controls.Add(this.groupBox_Cafe);
             this.Controls.Add(this.groupBox_FueLStation);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BestOil";
